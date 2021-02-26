@@ -7,12 +7,14 @@ all time lowest rating, and their all time highest rating.
 
 An input file named "movies.txt" is taken in with the parameters of 
 a movie name, date of release, genres, and three ratings respectively. 
+The delimiter used for each data attribute is a single white space " ", 
+and multiple genres and multi-word titles use underscores and may not contain whitespaces. 
+All of the data is loaded in and instances of Movie objects are created to hold all attributes.
+Then, three calculations are made to sort the movies in order based on their 
+average rating, their max rating, and their min rating in ascending order. 
+In return, the sorted order of the movies are saved into three separate text files called
+"movies_mean.txt", "movies_max.txt", "movies_min.txt" for average, max, and min respectively. 
 
-In return, it creates three files with the names of "movies_mean.txt", "movies_max.txt", "movies_min.txt", with
-the movie title, release date, genre, and unique metric sorted in ascending order.
-
-The delimiter used for each data attribute is a single white space " ", and multiple genres and multi-word titles
-use underscores and may not contain whitespaces. 
 
 To compile the program, run this command in your terminal in the directory: 
 
