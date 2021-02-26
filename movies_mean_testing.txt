@@ -1,0 +1,6 @@
+Age_Of_Ultron 2015 Sci-Fi 3.5
+Brave 2012 Animation 4.13333
+Tangled 2010 Animation 4.26667
+Infinity_War 2018 Adventure 4.46667
+The_Avengers 2012 Action 4.53333
+Endgame 2019 Action 4.63333
