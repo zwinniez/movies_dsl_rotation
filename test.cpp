@@ -88,24 +88,48 @@ bool run_all_tests() {
 	bool passing = true;
 	if (!movie_mean_test()) { 
 		std::cout << "Movie mean method failed\n";
-		passing = false; }
+		passing = false;
+	}
+	else {
+		std::cout << "Passed movie_mean_test()\n";
+	}
 	if (!movie_max_test()) { 
 		std::cout << "Movie max method failed\n";
 		passing = false; }
+	else {
+		std::cout << "Passed movie_max_test()\n";
+	}
 	if (!movie_min_test()) { 
 		std::cout << "Movie min method failed\n";
 		passing = false; }
+	else {
+		std::cout << "Passed movie_min_test()\n";
+	}
 	if (!movieIO_sorting_by_mean_test()) {
 		std::cout << "Sorting movies by mean failed\n";
 		passing = false;
+	}
+	else {
+		std::cout << "Passed sorting_by_mean_tests()\n";
 	}
 	if (!movieIO_sorting_by_max_test()) {
 		std::cout << "Sorting movies by max failed\n";
 		passing = false;
 	}
+	else {
+		std::cout << "Passed sorting_by_max_tests()\n";
+	}
 	if (!movieIO_sorting_by_min_test()) {
 		std::cout << "Soring movies by min failed\n";
 		passing = false;
 	}
+	else {
+		std::cout << "Passed sorting_by_min_tests()\n";
+	}
 	return passing;
+}
+
+int main() {
+	bool passed = run_all_tests();
+	std::cout << "Passed all tests: " << std::boolalpha << passed;
 }

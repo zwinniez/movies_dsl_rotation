@@ -1,6 +1,7 @@
 #ifndef MOVIE_H
 #define MOVIE_H
 
+#include "common.h"
 #include <iostream>
 
 class Movie {
@@ -32,4 +33,4 @@ private:
 };
 
 
-#endif MOVIE_H
+#endif

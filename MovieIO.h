@@ -2,6 +2,7 @@
 #define MOVIEIO_H
 #include "abm_io.h"
 #include "Movie.h"
+#include "common.h"
 
 
 class MovieIO : public AbmIO
@@ -27,4 +28,4 @@ private:
 };
 
 
-#endif MOVIEIO_H
+#endif

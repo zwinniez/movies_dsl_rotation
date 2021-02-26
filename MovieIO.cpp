@@ -48,7 +48,6 @@ std::vector<Movie*> MovieIO::loadMovies(std::vector<std::vector<std::string>> da
 		rating3 = std::stod(line[5]);
 		Movie* newMovie = new Movie(name, year, genre, rating1, rating2, rating3);
 		movies.push_back(newMovie);
-		std::cout << *newMovie;  //debugging
 	}
 	return movies;
 }
