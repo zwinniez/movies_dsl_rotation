@@ -6,5 +6,4 @@
 
 bool run_all_tests();
 
-#endif TEST_H
-
+#endif

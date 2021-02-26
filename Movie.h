@@ -1,7 +1,7 @@
 #ifndef MOVIE_H
 #define MOVIE_H
 
-#include <iostream>
+//#include <iostream>
 
 class Movie {
 	friend std::ostream& operator<< (std::ostream& os, Movie rhs);
@@ -32,4 +32,4 @@ private:
 };
 
 
-#endif MOVIE_H
+#endif
