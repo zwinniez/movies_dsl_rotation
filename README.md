@@ -15,6 +15,6 @@ Then, run the executable:
 main.exe
 
 To run all the tests, run this command in your terminal in the directory:
-g++ -o test test.cpp Movie.cpp MovieIO.cpp FileHandler.cpp 
+g++ -o test test.cpp Movie.cpp MovieIO.cpp FileHandler.cpp
 Then, run the executable:
 test.exe
