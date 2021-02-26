@@ -4,14 +4,20 @@ MovieIO::MovieIO(const std::string name, const std::string delim, const bool sfl
 	const std::vector<size_t> dims) : AbmIO(name, delim, sflag, dims),
 	movies(getMovies()) {}
 
+
 MovieIO::~MovieIO() {
+	//iterates through vector of movie pointers to delete objects off heap
 	for (Movie* m : movies) { delete m; }
 }
 
 std::vector<Movie*> MovieIO::getMoviesForTesting() const { return movies; }
 
 std::vector<Movie*> MovieIO::getMovies() {
+
+	//calls read_vector template function from AbmIO interface, uses std::string as the T object 
 	std::vector<std::vector<std::string>> fileData = AbmIO::read_vector<std::string>();
+
+	//loads the movies and its attributes and stores movie objects in movies vector
 	std::vector<Movie*> movies = loadMovies(fileData);
 	return movies;
 }
@@ -19,6 +25,7 @@ std::vector<Movie*> MovieIO::getMovies() {
 void MovieIO::write_vector(const std::string& fileWrite, const std::string& metric) const {
 	FileHandler file(fileWrite, std::ios_base::out | std::ios_base::trunc);
 	std::fstream& fout = file.get_stream();
+	//checks for specific stat wanted and fout the desired data
 	for (Movie* movie : movies) {
 		fout << movie->getName() << " " << movie->getYear()
 			<< " " << movie->getGenre() << " ";
@@ -39,6 +46,7 @@ std::vector<Movie*> MovieIO::loadMovies(std::vector<std::vector<std::string>> da
 	std::string name, genre;
 	int year;
 	double rating1, rating2, rating3;
+	//index out all six attributes to create Movie objects on the heap and store in movies
 	for (const std::vector<std::string>& line : data) {
 		name = line[0];
 		year = std::stoi(line[1]);
@@ -53,6 +61,8 @@ std::vector<Movie*> MovieIO::loadMovies(std::vector<std::vector<std::string>> da
 }
 
 void MovieIO::getMetrics() {
+	//sorts movies and creates three files to present 
+	//mean, max, and min in ascending order
 	MovieIO::sortByMetric("mean");
 	MovieIO::write_vector("movies_mean.txt", "mean");
 	MovieIO::sortByMetric("max");
@@ -62,24 +72,28 @@ void MovieIO::getMetrics() {
 }
 
 struct MovieIO::lessMean {
+	//returns true if lhs Movie has a lower mean than rhs Movie
 	inline bool operator() (Movie* mov1, Movie* mov2) {
 		return (mov1->getMean() < mov2->getMean());
 	}
 };
 
 struct MovieIO::lessMax {
+	//returns true if lhs Movie has a lower max than rhs Movie
 	inline bool operator() (Movie* mov1, Movie* mov2) {
 		return(mov1->getMax() < mov2->getMax());
 	}
 };
 
 struct MovieIO::lessMin {
+	//returns true if lhs Movie has a lower min than rhs Movie
 	inline bool operator() (Movie* mov1, Movie* mov2) {
 		return(mov1->getMin() < mov2->getMin());
 	}
 };
 
 void MovieIO::sortByMetric(const std::string& metric) {
+	//sort the movies based on given metric
 	if (metric == "mean") {
 		std::sort(movies.begin(), movies.end(), lessMean());
 	}
