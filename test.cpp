@@ -129,7 +129,7 @@ bool run_all_tests() {
 	return passing;
 }
 
-//int main() {
-//	bool passed = run_all_tests();
-//	std::cout << "Passed all tests: " << std::boolalpha << passed;
-//}
+int main() {
+	bool passed = run_all_tests();
+	std::cout << "Passed all tests: " << std::boolalpha << passed;
+}
